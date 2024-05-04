@@ -20,5 +20,39 @@ public class Aranha extends Actor
             //Adiciona aleatóriamente de -45 a 45° para rotacionar
             turn(Greenfoot.getRandomNumber(91)-45);
         }
+        //verificarCanto();
+        acelerarAranha();
+        
+        //interceptando abelha
+        
+        Abelha ab = ((BeeWorld) getWorld()).getAbelha();
+    if (ab!=null){
+    turnTowards(ab.getX(), ab.getY());
     }
+    
+    }
+    
+    public void acelerarAranha(){
+        if(getX()>200 && getX()<=600 &&
+        getY()>=100 && getY()<=500 ){
+        move(2);
+        
+    }
+            
+
 }
+    public void capturarMosca(){
+        
+    
+    }
+    
+    public void interceptarAbelha(){
+        //cast de BeeWorld -> força o mundo a ser do tipo BeeWorld
+    Abelha ab = ((BeeWorld) getWorld()).getAbelha();
+    if (ab!=null){
+    turnTowards(ab.getX(), ab.getY());
+    }
+    
+    }
+}    
+
