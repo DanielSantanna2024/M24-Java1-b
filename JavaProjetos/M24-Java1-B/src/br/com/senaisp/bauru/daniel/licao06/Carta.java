@@ -12,7 +12,7 @@ public class Carta {
 	private String naipe;
 	private String numero;
 	//Constructor
-	public Carta(int np, int, vl) {
+	public Carta(int np, int vl) {
 		if (np<1 || np>4) {
 			System.out.println("Naipe Inválido!");
 		}
@@ -23,13 +23,14 @@ public class Carta {
 		numero = NUMEROS[vl-1];
 	}
 	public String toString() {
-		String txt = "┌────┐ \n"+ //1
-					 "│#   │ \n"+ //2
-					 "│ § #│ \n"+ //3
-					 "└────┘ \n"; //4
-		txt = txt.replaceFirst("##", numero);
+		String txt = "┌─────┐ \n"+ //1
+					 "│##   │ \n"+ //2
+					 "│  §  │ \n"+ //3
+					 "│   ##│ \n"+ //3
+					 "└─────┘ \n"; //4
+		txt = txt.replaceFirst("##", numero + ( numero.equals("10") ? "" : ""));
 		txt = txt.replace("§", naipe);
-		txt = txt.replaceFirst("##", numero);
+		txt = txt.replaceFirst("##", ( numero.equals("10") ? "" : "") + numero);
 					 
 		return txt;
 	}
